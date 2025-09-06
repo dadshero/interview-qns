@@ -1,9 +1,5 @@
 
 
-````markdown
-
----
-
 ## 1️⃣ Undo last commit but keep changes
 **Scenario:** You committed code by mistake.  
 **Solution:**  
