@@ -2,7 +2,7 @@
 
 ````markdown
 
----
+
 
 ## 1. You committed code by mistake. How will you undo the last commit but keep your changes?
 
