@@ -2,148 +2,148 @@
 
 ````markdown
 
+---
 
-
-## 1. You committed code by mistake. How will you undo the last commit but keep your changes?
-
-👉 Use:
+## 1️⃣ Undo last commit but keep changes
+**Scenario:** You committed code by mistake.  
+**Solution:**  
 ```bash
 git reset --soft HEAD~1
 ````
 
-This removes the commit but keeps the files staged, so you can commit again properly.
+✅ This removes the commit but keeps your files staged, so you can commit again properly.
 
 ---
 
-## 2. You committed code, but now you want to undo both the commit and the changes. How?
+## 2️⃣ Undo last commit and also remove changes
 
-👉 Use:
+**Scenario:** You want to undo both the commit and the changes.
+**Solution:**
 
 ```bash
 git reset --hard HEAD~1
 ```
 
-This removes the last commit and deletes the changes from working directory too.
+✅ This deletes the commit and also removes the changes from your working directory.
 
 ---
 
-## 3. You pushed code to the remote, but the commit message is wrong. How do you fix it?
+## 3️⃣ Fix wrong commit message after pushing
 
-👉 Steps:
+**Scenario:** You pushed code with the wrong commit message.
+**Solution:**
 
 ```bash
 git commit --amend -m "Correct message"
 git push origin branch-name --force
 ```
 
-This corrects the commit message and updates remote with force push.
+✅ This updates the commit message and force pushes it to remote.
 
 ---
 
-## 4. You want to remove untracked files (not staged or committed). How will you do it safely?
+## 4️⃣ Remove untracked files safely
 
-👉 First check what will be deleted:
-
-```bash
-git clean -n
-```
-
-👉 Then delete them:
+**Scenario:** You want to delete only untracked files.
+**Solution:**
 
 ```bash
-git clean -f
+git clean -n   # shows what will be removed
+git clean -f   # deletes untracked files
 ```
+
+✅ First preview with `-n`, then delete with `-f`.
 
 ---
 
-## 5. You are working on a feature, but suddenly need to switch branches without losing current work. What do you do?
+## 5️⃣ Switch branches without losing work
 
-👉 Use **stash**:
+**Scenario:** You need to switch branches but don’t want to lose current work.
+**Solution:**
 
 ```bash
 git stash
 git checkout other-branch
-```
-
-👉 Later, bring changes back:
-
-```bash
 git stash pop
 ```
 
+✅ `stash` saves your changes temporarily and restores them later.
+
 ---
 
-## 6. Two developers worked on the same file and Git shows a merge conflict. How do you solve it?
+## 6️⃣ Resolve merge conflict
 
-👉 Steps:
+**Scenario:** Two developers edited the same file, causing a conflict.
+**Solution:**
 
-1. Open the file → Git will show conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
-2. Manually edit and keep the correct changes.
-3. Then run:
+1. Open the file → check conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`)
+2. Edit and keep the correct changes
+3. Run:
 
 ```bash
 git add file-name
 git commit
 ```
 
+✅ Conflict is resolved and changes committed.
+
 ---
 
-## 7. You accidentally deleted a branch locally. How do you recover it?
+## 7️⃣ Recover deleted branch
 
-👉 Find commit ID in reflog:
-
-```bash
-git reflog
-```
-
-👉 Create branch again:
+**Scenario:** You accidentally deleted a branch locally.
+**Solution:**
 
 ```bash
+git reflog                  # find commit ID
 git checkout -b branch-name commit-id
 ```
 
+✅ This recreates the branch from the last commit.
+
 ---
 
-## 8. How do you see what changed between two commits?
+## 8️⃣ Compare two commits
 
-👉 Use:
+**Scenario:** You want to see what changed between two commits.
+**Solution:**
 
 ```bash
 git diff commit1 commit2
 ```
 
-It shows exact changes line by line between commits.
+✅ Shows line-by-line differences between the two commits.
 
 ---
 
-## 9. You need to see who modified a particular line in a file. What do you use?
+## 9️⃣ Find who modified a line in a file
 
-👉 Use:
+**Scenario:** You want to check who changed a specific line.
+**Solution:**
 
 ```bash
 git blame file-name
 ```
 
-It shows author and commit for each line in the file.
+✅ Displays commit ID and author for each line.
 
 ---
 
-## 10. You merged a branch by mistake. How do you undo the merge?
+## 🔟 Undo a wrong merge
 
-👉 Use:
+**Scenario:** You merged a branch by mistake.
+**Solution:**
 
 ```bash
 git reset --hard HEAD~1
 ```
 
-This removes the merge commit.
+✅ This removes the merge commit locally.
 
-👉 If already pushed, then:
+If already pushed:
 
 ```bash
 git push origin branch-name --force
 ```
 
 ---
-
-
